@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int input=0;
+	scanf("%d",&input);//要求是input可以是1-100000000的任意整数（1 2 3 的讨论也非常必要）
+	int i=0;
+	int j=0;
+	int count=2;
+	switch(input)    //default的公式无法计算出1 2 3是否为素数，所以采用switch进行分类讨论，所以有更好的方法吗？
+	{
+	case 1:
+		printf("0");
+		break;
+	case 2:
+		printf("1");
+		break;
+	case 3:
+		printf("2");
+		break;
+	default:
+		for(i=3;i<=input;i+=2)
+		{
+			for(j=2;j<=sqrt(i)+1;j++) //用开平方可以加大算法效率
+			{
+				if(i%j==0)
+					break;
+			}
+			if(i%j!=0)
+				count++;
+		}
+		printf("%d",count);
+		break;
+	}
+	return 0;
+}
