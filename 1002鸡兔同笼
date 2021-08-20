@@ -1,0 +1,19 @@
+int main()
+{
+	int n=0;
+	int m=0;
+	scanf("%d%d",&n,&m);
+	if((4*n-m)%2==0&&(4*n-m)/2>=0)//注意：鸡兔数量不仅仅要是整数，还必须是自然数
+	{
+		if((m-2*n)%2==0&&(m-2*n)/2>=0)
+		{
+			printf("兔=%d\n",(m-2*n)/2);
+			printf("鸡=%d\n",(4*n-m)/2);
+		}
+		else
+			printf("ERROR\n");
+	}
+	else
+		printf("ERROR\n");//通过上面的嵌套，可以保证ERROR最多只会打印一次
+	return 0;
+}
